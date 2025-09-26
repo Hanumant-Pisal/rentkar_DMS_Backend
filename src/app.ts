@@ -7,7 +7,12 @@ import { errorHandler } from "../middlewares/error.middleware";
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000 || https://rentkar-dms-frontend-atrl.vercel.app',
+  credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan("dev"));
 
