@@ -11,6 +11,7 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:3003',
   'https://rentkar-dms-frontend-atrl.vercel.app',
+  'https://rentkar-dms-frontend-pxzy.vercel.app',
   process.env.FRONTEND_URL
 ].filter(Boolean);
 
