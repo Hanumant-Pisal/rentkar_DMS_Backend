@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 app.use("/api/v1", routes);
+app.use("/api/health", (req,res)=>res.send("backend is running"))
 
 app.use(errorHandler);
 

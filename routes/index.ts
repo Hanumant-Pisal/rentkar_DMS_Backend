@@ -8,12 +8,8 @@ const router = Router();
 
 
 router.use("/auth", authRoutes);
-
-
 router.use("/partners", partnerRoutes);
 router.use("/orders", orderRoutes);
-
-
 router.use("/admin", adminRoutes);
 
 export default router;
