@@ -40,7 +40,7 @@ export const login = async (req: Request, res: Response) => {
   if (!isMatch) return res.status(401).json({ error: "Invalid credentials" });
 
   if (!JWT_SECRET) {
-    throw new Error('JWT_SECRET is not configured');
+    throw new Error('required JWT_SECRET');
   }
 
   const token = jwt.sign(

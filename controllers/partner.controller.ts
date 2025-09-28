@@ -38,13 +38,13 @@ export const updateOrderStatus = async (req: AuthRequest, res: Response) => {
 
   
   const validTransitions: Record<OrderStatus, OrderStatus[]> = {
-    assigned: ['picked_up', 'in_transit', 'delivered'],
-    picked_up: ['in_transit', 'delivered', 'assigned'],
-    in_transit: ['delivered', 'picked_up', 'assigned'],
-    delivered: ['in_transit', 'picked_up', 'assigned'],
+    assigned: ['picked_up', 'delivered'],
+    picked_up: ['delivered', 'assigned'],
+   
+    delivered: ['picked_up', 'assigned'],
     pending: [],
-    confirmed: [],
-    cancelled: []
+   
+    
   };
 
   

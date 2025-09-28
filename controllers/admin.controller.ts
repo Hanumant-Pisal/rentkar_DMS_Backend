@@ -26,8 +26,7 @@ export const getAllPartners = async (req: AuthRequest, res: Response) => {
     if (search) {
       query.$or = [
         { name: { $regex: search, $options: 'i' } },
-        { email: { $regex: search, $options: 'i' } },
-        { vehicleNumber: { $regex: search, $options: 'i' } }
+        { email: { $regex: search, $options: 'i' } }
       ];
     }
     
@@ -74,7 +73,7 @@ export const deletePartner = async (req: AuthRequest, res: Response) => {
   
     await User.findByIdAndDelete(id);
 
-    res.json({ message: 'Partner and associated data deleted successfully' });
+    res.json({ message: 'Partner deleted successfully' });
   } catch (error) {
     console.error('Error deleting partner:', error);
     res.status(500).json({ error: 'Failed to delete partner' });
