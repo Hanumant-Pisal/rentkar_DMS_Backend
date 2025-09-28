@@ -39,7 +39,15 @@ export const login = async (req: Request, res: Response) => {
   const isMatch = await bcrypt.compare(password, user.passwordHash);
   if (!isMatch) return res.status(401).json({ error: "Invalid credentials" });
 
-  const token = jwt.sign({ id: user._id, role: user.role }, JWT_SECRET, { expiresIn: "1h" });
+  if (!JWT_SECRET) {
+    throw new Error('JWT_SECRET is not configured');
+  }
+
+  const token = jwt.sign(
+    { id: user._id, role: user.role },
+    JWT_SECRET,
+    { expiresIn: "1h" }
+  );
 
   res.status(200).json({
     message: "Login successful",
